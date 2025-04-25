@@ -1,0 +1,18 @@
+# Fdb version 4
+["pdflatex"] 1730437082.08376 "/Users/blakejohnson/Documents/Fall 2024/Finite Elements/Exam_2/problem_1.tex" "problem_1.pdf" "problem_1" 1730437083.5797 2
+  "/Users/blakejohnson/Documents/Fall 2024/Finite Elements/Exam_2/problem_1.tex" 1730437079.76629 18353 dec0d570442e3607c115dc0bf227cc35 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1136768653 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
+  "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1728318746.42165 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
+  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1728318588 8221419 b0e4f76e4cd445aa466e7472a77a6de4 ""
+  "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
+  "problem_1.aux" 0 -1 0 "pdflatex"
+  "problem_1.tex" 1730437079.76629 18353 dec0d570442e3607c115dc0bf227cc35 ""
+  (generated)
+  "problem_1.aux"
+  "problem_1.log"
+  "problem_1.pdf"
+  (rewritten before read)

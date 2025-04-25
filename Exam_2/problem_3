@@ -1,0 +1,160 @@
+\section*{Problem 3}
+
+Show that the subparametric triangular element (defined by combining quadratic 6-noded shape functions for the trial solution approximation with the linear map given in Eq. (7.47) in the text) is:
+\begin{enumerate}
+    \item[(a)] (15 points) \textbf{Linear Complete:} Demonstrate that the element can represent any linear function exactly.
+    \item[(b)] (10 points) \textbf{Quadratic Field Representation:} Prove that the element is capable of exactly representing the quadratic field \( x^2 \).
+\end{enumerate}
+
+Equation (7.47) in the text is given by:
+\[
+x = \sum_{I=1}^{3} x_I^e \xi_I, \quad y = \sum_{I=1}^{3} y_I^e \xi_I.
+\]
+
+\subsection*{a.$)$}
+Demonstrate that the element can represent any linear function exactly.
+
+I want to demostrate that the shape functions for the 6-node element can exactly represent any linear field (they can reproduce x and y exactly).
+The textbook solves this for the three node element, so I want to use that same approach for a 6 node element.
+
+\subsubsection*{Define Linear Field}
+the field $\theta(x,y)$ is linear if it is in the form:
+
+\begin{equation}
+    \theta(x,y) = \alpha_0 + \alpha_1 x + \alpha y
+    \label{eq:linear}
+\end{equation}
+
+\subsubsection*{Shape Functions for a 6-Node Triangle Element}
+Table 7.5 gives us the values of the Shape Functions:
+\[
+    N_1 = \xi_1 (2 \xi_1 -1)
+\]
+\[
+    N_2 = \xi_2 (2 \xi_2 -1)
+\]
+\[
+    N_3 = \xi_3 (2 \xi_3 -1)
+\]
+\[
+    N_4 = 4\xi_1\xi_2
+\]
+\[
+    N_5 = 4\xi_2\xi_3
+\]
+\[
+    N_6 = 4\xi_1\xi_3
+\]
+
+\subsubsection*{Use the Interpolated Function}
+The isoparametric element is defined using equations (7.53) in the textbook. We can use the approximation as:
+
+\begin{equation}
+    \theta^{e}(\xi) = \sum_{i=1}^{6} \theta_I N_I^{6L}(\xi)
+    \label{eq:sum}
+\end{equation}
+
+we want to show that if the nodal values are set by:
+\begin{equation}
+    \theta_I = \alpha_0 + \alpha_1 x_I
+    \label{eq:theta}
+\end{equation}
+
+and we can substitute \ref{eq:theta} into \ref{eq:sum}:
+
+\begin{equation*}
+    \theta(x,y) = \sum_{I=1}^{6} (\alpha_0 + \alpha_1 x +\alpha_2 y) {N_I}^{6L}(\xi)
+\end{equation*}
+
+so when we expand this over the 6 nodes we have:
+
+\begin{equation*}
+    \theta(x,y) = \alpha_0 + \alpha_1 \sum_{I=1}^{6}N_I^{6L}(\xi)(x_I) +\alpha_2 \sum_{I=1}^{6}N_I^{6L}(\xi)(y_I) 
+\end{equation*}
+
+Equation (7.47) from the text is in the above equation. But the partition of unity property states
+\[
+    \sum_{I=1}^{6} N_{I}^{6L}(\xi) = 1
+\]
+
+so the equation simplifies to:
+
+\begin{equation*}
+    \theta(x,y) = \alpha_0 + \alpha_1 x_I +\alpha_2 y_I
+\end{equation*}
+
+which matches the linear equation \ref{eq:linear} proving the 6 node element is linear complete.
+
+
+\subsubsection*{b.$)$}
+Prove that the element is capable of exactly representing the quadratic field \( x^2 \)
+
+I can apply a similar approach to the quadratic in this case that I did for the linear.
+
+\subsubsection*{Define Quadratic Field}
+Using the pascal triangle we can say the field $\theta(x,y)$ is quadratic if it is in the form:
+
+\begin{equation}
+    \theta(x,y) = \alpha_0 + \alpha_1 x_I^2 + \alpha_2 x_I y_I + \alpha_3 y_I^2
+    \label{eq:quadratic}
+\end{equation}
+
+\subsubsection*{Shape Functions for a 6-Node Triangle Element}
+Table 7.5 gives us the values of the Shape Functions:
+\[
+    N_1 = \xi_1 (2 \xi_1 -1)
+\]
+\[
+    N_2 = \xi_2 (2 \xi_2 -1)
+\]
+\[
+    N_3 = \xi_3 (2 \xi_3 -1)
+\]
+\[
+    N_4 = 4\xi_1\xi_2
+\]
+\[
+    N_5 = 4\xi_2\xi_3
+\]
+\[
+    N_6 = 4\xi_1\xi_3
+\]
+
+\subsubsection*{Use the Interpolated Functio}
+The isoparametric element is defined using equations (7.53) in the textbook. We can use the approximation as:
+
+\begin{equation}
+    \theta^{e}(\xi) = \sum_{i=1}^{6} \theta_I N_I^{6L}(\xi)
+    \label{eq:qsum}
+\end{equation}
+
+we want to show that if the nodal values are set by:
+\begin{equation}
+    \theta_I = \alpha_0 + \alpha_1 x_I
+    \label{eq:theta}
+\end{equation}
+
+and we can substitute \ref{eq:quadratic} into \ref{eq:qsum}:
+
+\begin{equation*}
+    \theta(x,y) = \sum_{I=1}^{6} (\alpha_0 + \alpha_1 x^2 +\alpha_2 x y + \alpha_3 y^2) {N_I}^{6L}(\xi)
+\end{equation*}
+
+so when we expand this over the 6 nodes we have:
+
+\begin{equation*}
+    \theta(x,y) = \alpha_0 + \alpha_1 \sum_{I=1}^{6}N_I^{6L}(\xi)(x_I^2) +\alpha_2 \sum_{I=1}^{6}N_I^{6L}(\xi)(x_I y_I)  + \alpha_3 \sum_{I=1}^{6}N_I^{6L}(\xi)(y_I^2)
+\end{equation*}
+
+Equation (7.47) from the text is in the above equation. But the partition of unity property states
+\[
+    \sum_{I=1}^{6} N_{I}^{6L}(\xi) = 1
+\]
+
+so the equation simplifies to:
+
+\begin{equation*}
+    \theta(x,y) = \alpha_0 + \alpha_1 x_I^2 +\alpha_2 x_I y_I + \alpha_3 y_I^2
+\end{equation*}
+
+which matches the linear equation \ref{eq:linear} proving the 6 node element is linear complete.

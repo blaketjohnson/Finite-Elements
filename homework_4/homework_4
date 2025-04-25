@@ -1,0 +1,663 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{graphicx}
+
+% Title Information
+\title{Homework 4}
+\author{Blake Johnson}
+\date{\today}
+
+% Custom Course Number
+\newcommand{\coursenumber}{AME 5763}
+
+\begin{document}
+
+% Title Page on its own page without extra blank pages
+\begin{titlepage}
+    \centering
+    {\LARGE \bfseries Homework 4 \par}
+    \vspace{1cm}
+    {\Large Blake Johnson \par}
+    \vspace{0.5cm}
+    {\Large \coursenumber \par}
+    \vfill
+    {\large \today \par}
+\end{titlepage}
+
+\section*{Problem 6.1}
+Given a vector field:
+\[
+q_x = -y^2, \quad q_y = -2xy
+\]
+on the domain shown in Figure 6.2. Verify the divergence theorem.
+
+\subsection*{Solution}
+
+The divergence theorem states:
+\[
+\int_{\Omega} \nabla \cdot \mathbf{q} \, d\Omega  =  \oint_{\Gamma} \mathbf{q} \cdot \mathbf{n} \, d\Gamma
+\]
+
+using the domains and values from:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure_1.png} % Replace with your image file name
+    \caption{figure 6.2}
+    \label{fig:6.2}
+\end{figure}
+
+\subsubsection*{Step 1: Calculate the Divergence}
+\[
+\nabla \cdot \mathbf{q} = \frac{\partial q_x}{\partial x} + \frac{\partial q_y}{\partial y}
+\]
+Since \( q_x = -y^2 \) and \( q_y = -2xy \), we have:
+\[
+\frac{\partial q_x}{\partial x} = 0, \quad \frac{\partial q_y}{\partial y} = -2x
+\]
+Thus:
+\[
+\nabla \cdot \mathbf{q} = -2x
+\]
+
+\subsubsection*{Step 2: Integrate the Divergence over the Domain}
+We integrate the divergence \( \nabla \cdot \mathbf{q} = -2x \) over the square domain \( \Omega \) bounded by \( -1 \leq x \leq 1 \) and \( -1 \leq y \leq 1 \):
+\[
+\int_{\Omega} \nabla \cdot \mathbf{q} \, d\Omega = \int_{x = -1}^{1} \int_{y = -1}^{1} -2x \, dy \, dx
+\]
+
+First, integrate with respect to \( y \):
+\[
+\int_{y = -1}^{1} -2x \, dy = -2x \left[ y \right]_{y = -1}^{1} = -2x \left( 1 - (-1) \right) = -2x \cdot 2 = -4x
+\]
+
+Now, integrate with respect to \( x \):
+\[
+\int_{x = -1}^{1} -4x \, dx = -4 \int_{x = -1}^{1} x \, dx = -4 \left[ \frac{x^2}{2} \right]_{-1}^{1} = -4 \left( \frac{1}{2} - \frac{1}{2} \right) = 0
+\]
+
+Thus, the volume integral evaluates to:
+\[
+\int_{\Omega} \nabla \cdot \mathbf{q} \, d\Omega = 0
+\]
+
+\subsubsection*{Step 3: Calculate the Flux on the Boundary}
+
+\paragraph{Segment AB:}
+
+\[
+\oint_{AB} q_y \cdot \hat{n} \, d\Gamma
+\]
+where \( q_y = -2xy \), \( \hat{n} = -\hat{j} \), \( d\Gamma = dx \), and \( y = 1 \).
+
+Thus, the integral becomes:
+\[
+\oint_{-1}^{1} (-2x \cdot 1)(-1) \, dx = -2 \int_{-1}^{1} x \, dx
+\]
+Evaluating the integral:
+\[
+-2 \oint_{-1}^{1} x \, dx = -2 \left[ \frac{x^2}{2} \right]_{-1}^{1} = -2 \left( \frac{1}{2} - \frac{1}{2} \right) = 0
+\]
+
+\paragraph{Segment BC:}
+
+\[
+\oint_{BC} q_x \cdot \hat{n} \, d\Gamma
+\]
+where \( q_x = -y^2 \), \( \hat{n} = \hat{i} \), \( d\Gamma = dy \), and \( x = 1 \).
+
+Thus, the integral becomes:
+\[
+\oint_{-1}^{1} (-y^2) \, dy = \left[ -\frac{y^3}{3} \right]_{-1}^{1} = -\frac{1}{3} - \left( -\frac{1}{3} \right) = -\frac{2}{3}
+\]
+
+\paragraph{Segment CD:}
+
+\[
+\oint_{CD} q_y \cdot \hat{n} \, d\Gamma
+\]
+where \( q_y = -2xy \), \( \hat{n} = \hat{j} \), \( d\Gamma = dx \), and \( y = -1 \).
+
+Thus, the integral becomes:
+\[
+\oint_{-1}^{1} (-2x \cdot -1)(1) \, dx = 2 \oint_{-1}^{1} x \, dx
+\]
+Evaluating the integral:
+\[
+2 \oint_{-1}^{1} x \, dx = 2 \left[ \frac{x^2}{2} \right]_{-1}^{1} = 2 \left( \frac{1}{2} - \frac{1}{2} \right) = 0
+\]
+
+\paragraph{Segment DA:}
+
+\[
+\oint_{DA} q_x \cdot \hat{n} \, d\Gamma
+\]
+where \( q_x = -y^2 \), \( \hat{n} = -\hat{i} \), \( d\Gamma = dy \), and \( x = -1 \).
+
+Thus, the integral becomes:
+\[
+\oint_{-1}^{1} (-y^2)(-1) \, dy = \oint_{-1}^{1} y^2 \, dy
+\]
+Evaluating the integral:
+\[
+\oint_{-1}^{1} y^2 \, dy = \left[ \frac{y^3}{3} \right]_{-1}^{1} = \frac{1}{3} - \left( -\frac{1}{3} \right) = \frac{2}{3}
+\]
+
+\subsubsection*{Step 4: Verification of the Divergence Theorem}
+Summing the contributions from all segments of the boundary \( \Gamma \):
+\[
+\oint_{\Gamma} \mathbf{q} \cdot \mathbf{n} \, d\Gamma = 0 + \left( -\frac{2}{3} \right) + 0 + \frac{2}{3} = 0
+\]
+
+Now we compare the boundary integral with the volume integral:
+\[
+\oint_{\Gamma} \mathbf{q} \cdot \mathbf{n} \, d\Gamma = \int_{\Omega} \nabla \cdot \mathbf{q} \, d\Omega = 0
+\]
+
+Thus, the divergence theorem is verified as both the surface and volume integrals are equal to zero.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Problem 6.3}
+Using the divergence theorem, prove:
+\[
+\oint_{\Gamma} \mathbf{n} \cdot d\Gamma = 0.
+\]
+
+\subsection*{Solution}
+
+The divergence theorem states:
+\[
+\int_{\Omega} \nabla \cdot \mathbf{q} \, d\Omega = \oint_{\Gamma} \mathbf{q} \cdot \mathbf{n} \, d\Gamma.
+\]
+
+
+
+\[
+\vec{n} = n_x \hat{i} + n_y \hat{j} \quad = \begin{bmatrix}
+    (n_x)\\(n_y)
+\end{bmatrix}
+\]
+
+\[
+\int_{\partial \Gamma} n \, d\Gamma \rightarrow \int_{\partial \Gamma} (n_x \hat{i} + n_y \hat{j}) \, d\Gamma \rightarrow \int_{\partial \Gamma} (n_x \hat{i}) \, d\Gamma\ + \int_{\partial \Gamma} (n_y \hat{j}) \, d\Gamma
+\]
+
+\[
+\oint_\Gamma n_x \hat{i} \, d\Gamma = \int_{\Omega} \nabla \cdot n_x \hat{i} \, d\Omega
+\]
+
+Caclulate $\nabla \cdot (n_x)$
+\[
+\nabla \cdot (n_x) = \frac{\partial n_x}{\partial x}.
+\]
+Since \(n_x\) is the unit vector in the \(\hat{i}\) direction, we have \(n_x = 1\). Therefore:
+\[
+\frac{\partial (1)}{\partial x} = 0.
+\]
+
+\[
+\oint_\Gamma n_x \hat{i} \, d\Gamma = \int_{\Omega} \nabla \cdot n_x \hat{i} \, d\Omega = \int_{\Omega} 0 \, d\Omega
+\]
+
+\[
+\oint_\Gamma n_x \hat{i} \, d\Gamma = \int_{y=0}^{1} \int_{x=0}^{1} 0 \, dx dy = \int_{y=0}^{1} 0 \cdot (x)_{0}^{1} dy = \int_{y=0}^{1} 0 dy = 0
+\]
+Thus:
+\[
+\oint_\Gamma n_x \hat{i} \, d\Gamma =  0
+\]
+Then we do the same for $\oint_\Gamma n_y \hat{j} \, d\Gamma$
+\[
+\oint_\Gamma n_y \hat{j} \, d\Gamma = \int_{\Omega} \nabla \cdot n_y \hat{j} \, d\Omega
+\]
+
+Caclulate $\nabla \cdot (n_x)$
+\[
+\nabla \cdot (n_y) = \frac{\partial n_y}{\partial y}.
+\]
+Since \(n_y\) is the unit vector in the \(\hat{j}\) direction, we have \(n_y = 1\). Therefore:
+\[
+\frac{\partial (1)}{\partial y} = 0.
+\]
+
+\[
+\oint_\Gamma n_y \hat{j} \, d\Gamma = \int_{\Omega} \nabla \cdot n_y \hat{j} \, d\Omega = \int_{\Omega} 0 \, d\Omega
+\]
+
+\[
+\oint_\Gamma n_y \hat{j} \, d\Gamma = \int_{x=0}^{1} \int_{y=0}^{1} 0 \, dy dx = \int_{x=0}^{1} 0 \cdot (y)_{0}^{1} dx = \int_{x=0}^{1} 0 dx = 0
+\]
+Thus:
+\[
+\oint_\Gamma n_y \hat{j} \, d\Gamma =  0
+\]
+
+Finally:
+
+\[\int_{\partial \Gamma} (n_x \hat{i}) \, d\Gamma = 0 \]
+\[\int_{\partial \Gamma} (n_y \hat{j}) \, d\Gamma = 0 \]
+\begin{equation*}
+    \int_{\partial \Gamma} n \, d\Gamma = 
+    \int_{\partial \Gamma} (n_x \hat{i}) \, d\Gamma + 
+    \int_{\partial \Gamma} (n_y \hat{j}) \, d\Gamma \\
+\end{equation*}\\
+\[    \int_{\partial \Gamma} n \, d\Gamma = 0\]
+QED
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Problem 6.5}
+Consider the governing equation for the heat conduction problem in two dimensions with surface convection:
+\begin{equation*}
+    \nabla^T ( \mathbf{D} \nabla T ) + s = 2h(T - T_{\infty}) \quad \text{on } \Omega,
+\end{equation*}
+\begin{align*}
+    q_n &= \mathbf{q}^T \mathbf{n} = \bar{q} \quad \text{on } \Gamma_q, \\
+    T &= \bar{T} \quad \text{on } \Gamma_T.
+\end{align*}
+Derive the weak form.
+
+\subsection*{Solution}
+Consider the governing equation for the heat conduction problem in two dimensions with surface convection:
+\begin{equation*}
+    \nabla^T ( \mathbf{D} \nabla T ) + s = 2h(T - T_{\infty}) \quad \text{on } \Omega,
+\end{equation*}
+\begin{align*}
+    q_n &= \mathbf{q}^T \mathbf{n} = \bar{q} \quad \text{on } \Gamma_q, \\
+    T &= \bar{T} \quad \text{on } \Gamma_T.
+\end{align*}
+Derive the weak form.
+
+\section*{Solution}
+The governing equation is:
+\begin{equation*}
+    \nabla^T ( \mathbf{D} \nabla T ) + s = 2h(T - T_{\infty})
+\end{equation*}
+
+\begin{itemize}
+    \item $\nabla^T ( \mathbf{D} \nabla T ) + s$ represents internal heat conduction,
+    \item $2h(T - T_{\infty})$ represents heat gain/loss through convection.
+\end{itemize}
+
+Rewriting the equation:
+\begin{equation*}
+    \nabla^T ( \mathbf{D} \nabla T ) + s - 2h(T - T_{\infty}) = 0
+\end{equation*}
+
+Multiply by the test function $w$ and integrate over the domain $\Omega$:
+\begin{equation*}
+    \int_{\Omega} w \left( \nabla^T ( \mathbf{D} \nabla T ) + s - 2h(T - T_{\infty}) \right) d\Omega = 0
+\end{equation*}
+
+Expanding the integral:
+\begin{equation*}
+    \int_{\Omega} w \nabla^T ( \mathbf{D} \nabla T ) d\Omega + \int_{\Omega} w s \, d\Omega - \int_{\Omega} 2h w (T - T_{\infty}) d\Omega = 0
+\end{equation*}
+
+where:
+\[\int_{\Omega} w \nabla^T ( \mathbf{D} \nabla T ) d\Omega = \text{heat conduction}\]
+\[\int_{\Omega} w s \, d\Omega = \text{internal heat generated}\]
+\[- \int_{\Omega} 2h w (T - T_{\infty}) d\Omega  = \text{convective heat transfer}\]
+
+
+\begin{equation*}
+    \int_{\Omega} w \nabla^T ( \mathbf{D} \nabla T ) d\Omega = \int_{\Gamma} w ( \mathbf{D} \nabla T ) \mathbf{n} \, d\Gamma - \int_{\Omega} \nabla w \cdot ( \mathbf{D} \nabla T ) \, d\Omega
+\end{equation*}
+
+where:
+\[\int_{\Gamma} w ( \mathbf{D} \nabla T ) \mathbf{n} \, d\Gamma = \text{heat flux accross the boundary}\]
+\[- \int_{\Omega} \nabla w \cdot ( \mathbf{D} \nabla T ) \, d\Omega = \text{condiuction term}\]
+
+$\Gamma =$ boundary of domain $\Omega$\\
+$n =$ outward normal vector\\
+
+\[\bar{q} = (D \nabla T)\cdot n \rightarrow \int_{\Gamma_{q}}w \bar{q} d\Gamma \]
+
+$T = \bar{T}$ on $\Gamma_{\tau}$ since temperature is fixed on the boundary.\\
+$w = 0$ on $\Gamma_{\tau}$\\ 
+
+Substituting back to get:
+
+\begin{equation*}
+    \int_{\Gamma_{q}}  w \bar{q} d\Gamma - \int_{\Omega} \nabla w \cdot ( \mathbf{D} \nabla T ) \, d\Omega + \int_{\Omega} w s \, d\Omega - \int_{\Omega} 2h w (T - T_{\infty}) \, d\Omega = 0
+\end{equation*}
+
+
+\begin{equation*}
+    \int_{\Omega} \nabla w \cdot ( \mathbf{D} \nabla T ) \, d\Omega + \int_{\Omega} 2h w (T - T_{\infty}) \, d\Omega = \int_{\Omega} w s \, d\Omega  + \int_{\Gamma_q} w \bar{q} \, d\Gamma
+\end{equation*}
+
+\section*{Interpretation}
+\begin{itemize}
+    \item Heat conduction: $\int_{\Omega} \nabla w \cdot ( \mathbf{D} \nabla T ) \, d\Omega$
+    \item Internal heat generation: $\int_{\Omega} w s \, d\Omega$
+    \item Convective heat transfer: $\int_{\Omega} 2h w (T - T_{\infty}) \, d\Omega$
+    \item Heat flux across boundary: $\int_{\Gamma_q} w \bar{q} \, d\Gamma$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Problem 7.1}
+Given a nine-node rectangular element as shown in Figure 7.30:
+
+\begin{enumerate}
+    \item Construct the element shape functions by the tensor product method.
+    \item If the temperature field at nodes A and B is 1 $^{\circ}$C and zero at all other nodes, what is the temperature at $x = y = 1$?
+    \item Consider the three-node triangular element ABC located to the right of the nine-node rectangular element. Will the function be continuous across the edge AB? Explain.
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure_2.png} % Replace with your image file name
+    \caption{figure 7.1}
+    \label{fig:7.1}
+\end{figure}
+
+
+\subsection*{Solution}
+\subsection*{(i) Construct the element shape functions by the tensor product method.}
+The general formula for the shape functions $N_i(\xi, \eta)$ is given by:
+\begin{equation*}
+    N_i(\xi, \eta) = \frac{1}{4}(1 + \xi \xi_i)(1 + \eta \eta_i) \text{ if } \xi,\eta \neq 0
+\end{equation*}
+\begin{equation*}
+    N_i(\xi, \eta) = \frac{1}{2}(1 + \xi^2)(1 \pm \eta) \text{ or } N_i(\xi, \eta) = \frac{1}{2}(1 + \eta^2)(1 \pm \xi) \text{ if } \xi,\eta = 0
+\end{equation*}
+where $\xi_i$ and $\eta_i$ are the nodal coordinates in the reference space.
+\par
+I set the coordinates for $\xi_i$ and $\eta_i$ so that node 9 (the node not on the boundary) was at 0,0.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{ccccc}
+        \toprule
+        $N$ & $\xi$ & $\eta$ & General Shape Functions & Shape Function \\
+        \midrule
+        1 & -1 & -1 & $\frac{1}{4}(1 + (-1)\xi)(1 + (-1)\eta)$ & $\frac{1}{4}(1 - \xi)(1 - \eta)$ \\
+        2 & 0 & -1 & $\frac{1}{2}(1 - \xi^2)(1 + (-1)\eta)$ & $\frac{1}{2}(1 - \xi^2)(1 - \eta)$ \\
+        3 & 1 & -1 & $\frac{1}{4}(1 + (1)\xi)(1 + (-1)\eta)$ & $\frac{1}{4}(1 + \xi)(1 - \eta)$ \\
+        4 & 1 & 0 & $\frac{1}{2}(1 + (1)\xi)(1 - \eta^2)$ & $\frac{1}{2}(1 + \xi)(1 - \eta^2)$ \\
+        5 & 1 & 1 & $\frac{1}{4}(1 + (1)\xi)(1 + (1)\eta)$ & $\frac{1}{4}(1 + \xi)(1 + \eta)$ \\
+        6 & 0 & 1 & $\frac{1}{2}(1 - \xi^2)(1 + \eta)$ & $\frac{1}{2}(1 - \xi^2)(1 + \eta)$ \\
+        7 & -1 & 1 & $\frac{1}{4}(1 + (-1)\xi)(1 + (1)\eta)$ & $\frac{1}{4}(1 - \xi)(1 + \eta)$ \\
+        8 & -1 & 0 & $\frac{1}{2}(1 + (-1)\xi)(1 - \eta^2)$ & $\frac{1}{2}(1 - \xi)(1 - \eta^2)$ \\
+        9 & 0 & 0 & $(1 - \xi^2)(1 - \eta^2)$ & $(1 - \xi^2)(1 - \eta^2)$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Shape functions for the nine-node rectangular element}
+    \label{tab:shape-functions}
+\end{table}
+
+
+Then the Shape Functions for this problem are:
+\begin{align*}
+    N_1(\xi, \eta) &= \frac{1}{4}(1 - \xi)(1 - \eta) \\
+    N_2(\xi, \eta) &= \frac{1}{2}(1 - \xi^2)(1 - \eta) \\
+    N_3(\xi, \eta) &= \frac{1}{4}(1 + \xi)(1 - \eta) \\
+    N_4(\xi, \eta) &= \frac{1}{2}(1 + \xi)(1 - \eta^2)\\
+    N_5(\xi, \eta) &= \frac{1}{4}(1 + \xi)(1 + \eta)\\
+    N_6(\xi, \eta) &= \frac{1}{2}(1 - \xi^2)(1 + \eta)\\
+    N_7(\xi, \eta) &= \frac{1}{4}(1 - \xi)(1 + \eta)\\
+    N_8(\xi, \eta) &= \frac{1}{2}(1 - \xi)(1 - \eta^2)\\
+    N_9(\xi, \eta) &= (1 - \xi^2)(1 - \eta^2)\\
+\end{align*}
+
+\subsection*{(ii) If the temperature field at nodes A and B is 1 $^{\circ}$C and zero at all other nodes, what is the temperature at $x = y = 1$?}
+
+Point: $x = y = 1 = (1, -1)$.\\
+
+When $x = 0$: $\xi = -1$; $x = 4$: $\xi =1$.\\
+Consider a slope of a line where $\frac{\Dela \xi}{\Dela x} = \frac{1-(-1)}{4-0} = frac{2}{4} = \frac{1}{2}$\\
+Then the linear equation can be written: $\xi = mx+b \rightarrow \xi = \frac{1}{2}x - 1$\\
+
+
+When $y = 0$: $\eta = -1$, when $y=2$: $\eta = 1$.\\
+Caclulate the slope: $frac{2-0}{1-(-1)} = frac{2}{2} = 1$\\
+Then the linear equation is: $\eta = x-1$\\
+
+At point $(1, 1)$:
+    
+    \[
+    \xi = \frac{1}{2}(1) - 1 = -\frac{1}{2}-1 = -\frac{1}{2}
+    \]
+
+    \[
+    \eta = 1 - 1 = 0
+    \]
+
+    \[
+    T(\xi, \eta) = \sum_{i=1}}^{9} N_i(\xi, \eta) \cdot T_i
+    \]
+
+    $T(\xi,\eta)$ at all nodes other than A and B $= 0 $.
+    \[
+    T(\xi, \eta) = N_3(-1, 1) \cdot 1 + N_5(1, 1) \cdot 1
+    \]
+
+    \[
+    N_3 = \frac{1}{4}(1 + \xi)(1 - \eta) = \frac{1}{4}\left(1 + \frac{-1}{2}\right)(1-0) = \left(\frac{1}{4}\right)\left(\frac{1}{2}\right)(1) = \frac{1}{8}
+    \]
+
+    \[
+        N_5 = \frac{1}{4}(1 + \xi)(1 + \eta) = \frac{1}{4}\left(1 + \frac{-1}{2}\right)(1+0) = \left(\frac{1}{4}\right)\left(\frac{1}{2}\right)(1) = \frac{1}{8}
+    \]
+    \[
+        \sum N_i \cdot T = \frac{1}{8} + \frac{1}{8} = \frac{2}{8} = \frac{1}{4}
+    \]
+    Then the Temperauter $T(1,1) = \frac{1}{4}^{\circ}$ C.
+
+\subsection*{(iii) Consider the three-node triangular element ABC located to the right of the nine-node rectangular element. Will the function be continuous across the edge AB? Explain.}
+Now for the triangle lets change the values of $\xi$ and $\eta$ at the Nodes.
+$N_3(\xi, \eta) \rightarrow N_3(1,-1)$, $N_5(\xi, \eta) \rightarrow N_5(1,1)$ and $N_C(\xi, \eta) \rightarrow N_c(2,-1)$
+
+\[
+ N_3 = \frac{1}{4}(1 + \xi)(1 - \eta) = \frac{1}{4}\left(1 + 1\right)(1-(-1)) = \left(\frac{1}{4}\right)\left(2\right)(2) = 1
+\]
+
+\[
+    N_5 = \frac{1}{4}(1 + \xi)(1 - \eta) = \frac{1}{4}\left(1 + 1\right)(1-1) = 0
+\]
+
+The temperature along the edge AB in the rectangular element is $1 + 0 = 1^{\circ}$C. Which matches what the problem states.
+
+The shape function of a three noded triangular element is:
+\[
+A = \frac{1}{2}b*h = \frac{1}{2}(2)(2) = 2
+\]
+
+\[
+    N_A(x, y) = [\frac{1}{2A}x_B y_C - x_C y_B + (y_B - y_D)x + (x_C - x_Z)y]
+\]
+
+\[
+    N_A(x, y) = [\frac{1}{2*2}[(4*0) - (6*0)+(0-0)x+(6-4)y] = \frac{1}{4}(2)y = \frac{1}{2}y]
+\]
+
+\[
+    N_B = \frac{1}{2A}[x_C y_A - x_A y_C + (y_C - y_A) x + (x_A-x_C)]
+\]
+\[
+    N_B = \frac{1}{2*2}[(6*2)-(4*0)+(0-2)x+(4-6)y] = \frac{1}{2}(6-x-y)
+\]
+
+    The shape function from the rectangular is quadratic. The shape function from the triangle is linear. Therefore, they are not continuous.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section*{Problem 7.4}
+Construct the shape functions for the five-node triangular element shown in Figure 7.32, which has quadratic shape functions along two sides and linear shape functions along the third. Be sure your shape functions for all nodes are linear between nodes 1 and 2. Use triangular coordinates and express your answer in terms of triangular coordinates.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure 3.png} % Replace with your image file name
+    \caption{figure 7.4}
+    \label{fig:7.4}
+\end{figure}
+
+\subsection*{Solution}
+Quadratic shape function along 2 sides and linear between nodes 1 and 2.
+
+Start with a 6-node element:
+\begin{equation*}
+    \theta = N_1 \theta_1 + N_2 \theta_2 + N_3 \theta_3 + N_4 \theta_4 + N_5 \theta_5 + N_6 \theta_6
+\end{equation*}
+
+There is no node between $N_1$ and $N_2$, so this is linear displacement.
+\[
+\theta_{6} = \frac{\theta_{1}+\theta_{2}}{2}
+\]
+\begin{equation*}
+    \theta = N_1 \theta_1 + N_2 \theta_2 + N_3 \theta_3 + N_4 \theta_4 + N_5 \theta_5 + N_6 \left(\frac{\theta_{1}+\theta_{2}}{2}\right)
+\end{equation*}
+
+\[
+\theta = N_1 \theta_1 + N_2 \theta_2 + N_3 \theta_3 + N_4 \theta_4 + N_5 \theta_5 + N_6 \frac{\theta_{1}+ N_6 \theta_{2}}{2}  
+\]
+
+\begin{equation*}
+    \thea = \left(N_1 + \frac{N_6}{2}\right) \theta_1 + (N_2 + \frac{N_6}{2}) \theta_2 + N_3\theta_3 + N_4\theta_4 +N_5\theta_5
+\end{equation*}
+
+\begin{equation*}
+    N_1^{'} = \left(N_1 + \frac{N_6}{2}\right), \quad N_2^{'} = (N_2 + \frac{N_6}{2})
+\end{equation*}
+
+\begin{equation*}
+    N_1^{'} = \frac{2}{2} [(2 \xi - 1) + (4 \xi_1\xi_3)] = \xi_1 (2 \xi_1 - 1) + 2 \eta_1\eta_3
+\end{equation*}
+
+\begin{equation*}
+    N_1^{'} = \xi_1(2 \xi_1 - 1 + 2 \eta_3)
+\end{equation*}
+
+\begin{equation*}
+    N_2^{'} = \frac{2N_2+N_6}{2}, \quad N_2^{'} = \XI_2 (2 \xi_2-1)
+\end{equation*}
+
+\begin{equation*}
+    N_6 = 4\xi_1\xi_3
+\end{equation*}
+
+\begin{equation*}
+    N_2^{'} = \xi_2(2\xi_2-1)+2\xi_1\xi_3
+\end{equation*}
+
+\begin{equation*}
+    N_2^{'} = \xi_2 (2\xi_2-1+2\xi_3)
+\end{equation*}
+
+\begin{equation*}
+    N_3' = \xi_3 (2 \xi_3 - 1)
+\end{equation*}
+
+\begin{equation*}
+    N_4' = 4 \xi_1\xi_2
+\end{equation*}
+
+\begin{equation*}
+    N_5' = 4 \xi_2 \xi_3
+\end{equation*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\section*{7.5}
+Derive the derivatives of the shape functions and the B-matrix of the eight-node brick element.
+
+\section*{Solution}
+
+The equation for the shape function \( N[I, J, K](\xi, \eta, \zeta) \) is given by:
+
+\[
+N_{[I,J,K]}(\xi, \eta, \zeta) = N_I(\xi) N_J(\eta) N_K(\zeta)
+\]
+
+\[
+N_1 = \frac{(\xi - \xi_2)}{(\xi_1 - \xi_2)} \cdot \frac{(\eta - \eta_4)}{(\eta_1 - \eta_4)} \cdot \frac{(\zeta - \zeta_5)}{(\zeta_1 - \zeta_5)}
+\]
+
+\[
+N_1 = \frac{(\xi - 1)}{(-1 - 1)} \cdot \frac{(\eta - 1)}{(-1 - 1)} \cdot \frac{(\zeta - 1)}{(-1 - 1)}
+\]
+
+\[
+N_1 = \frac{(\xi - 1)}{-2} \cdot \frac{(\eta - 1)}{-2} \cdot \frac{(\zeta - 1)}{-2}
+\]
+
+
+We can say the general shape function is:
+
+\[
+\frac{1}{8} (1 - \xi_i \xi) (1 - \eta_i \eta) (1 - \zeta_i \zeta)
+\]
+
+\[
+\frac{\partial N_0}{\partial \xi} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial \xi} & \frac{\partial y}{\partial \xi} & \frac{\partial z}{\partial \xi}
+\end{bmatrix}
+\]
+
+\[
+\frac{\partial N_0}{\partial \eta} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial \eta} & \frac{\partial y}{\partial \eta} & \frac{\partial z}{\partial \eta}
+\end{bmatrix}
+\]
+
+\[
+\frac{\partial N_0}{\partial \zeta} = 
+\begin{bmatrix}
+\frac{\partial x}{\partial \zeta} & \frac{\partial y}{\partial \zeta} & \frac{\partial z}{\partial \zeta}
+\end{bmatrix}
+\]
+
+The partial derivatives of the shape functions with respect to the natural coordinates are used to construct the B-matrix. The B-matrix relates the strain to the nodal displacements and is defined as:
+\begin{equation*}
+    \epsilon = B e
+\end{equation*}
+where $\epsilon$ is the strain vector, $B$ is the strain-displacement matrix, and $e$ is the displacement vector.
+
+The B-matrix for an eight-node brick element is constructed using the partial derivatives of all shape functions with respect to the global coordinates $x$, $y$, and $z$. Using the chain rule, we can express the derivatives in terms of the natural coordinates $\xi$, $\eta$, and $\zeta$ and the Jacobian matrix $J$:
+\begin{equation*}
+    J = \begin{bmatrix}
+        \frac{\partial x}{\partial \xi} & \frac{\partial x}{\partial \eta} & \frac{\partial x}{\partial \zeta} \\
+        \frac{\partial y}{\partial \xi} & \frac{\partial y}{\partial \eta} & \frac{\partial y}{\partial \zeta} \\
+        \frac{\partial z}{\partial \xi} & \frac{\partial z}{\partial \eta} & \frac{\partial z}{\partial \zeta}
+    \end{bmatrix}
+\end{equation*}
+
+The inverse of the Jacobian matrix is used to relate the natural coordinate derivatives to the global coordinate derivatives:
+\begin{equation*}
+    \begin{bmatrix}
+        \frac{\partial N}{\partial x} \\
+        \frac{\partial N}{\partial y} \\
+        \frac{\partial N}{\partial z}
+    \end{bmatrix} = J^{-1} \begin{bmatrix}
+        \frac{\partial N}{\partial \xi} \\
+        \frac{\partial N}{\partial \eta} \\
+        \frac{\partial N}{\partial \zeta}
+    \end{bmatrix}
+\end{equation*}
+
+The B-matrix is then assembled as:
+\begin{equation*}
+B = \begin{bmatrix}
+    \frac{\partial N_1}{\partial x} & 0 & 0 & \frac{\partial N_2}{\partial x} & 0 & 0 & \frac{\partial N_3}{\partial x} & 0 & 0 & \frac{\partial N_4}{\partial x} & 0 & 0 & \frac{\partial N_5}{\partial x} & 0 & 0 & \frac{\partial N_6}{\partial x} & 0 & 0 & \frac{\partial N_7}{\partial x} & 0 & 0 & \frac{\partial N_8}{\partial x} & 0 & 0 \\
+    0 & \frac{\partial N_1}{\partial y} & 0 & 0 & \frac{\partial N_2}{\partial y} & 0 & 0 & \frac{\partial N_3}{\partial y} & 0 & 0 & \frac{\partial N_4}{\partial y} & 0 & 0 & \frac{\partial N_5}{\partial y} & 0 & 0 & \frac{\partial N_6}{\partial y} & 0 & 0 & \frac{\partial N_7}{\partial y} & 0 & 0 & \frac{\partial N_8}{\partial y} & 0 \\
+    0 & 0 & \frac{\partial N_1}{\partial z} & 0 & 0 & \frac{\partial N_2}{\partial z} & 0 & 0 & \frac{\partial N_3}{\partial z} & 0 & 0 & \frac{\partial N_4}{\partial z} & 0 & 0 & \frac{\partial N_5}{\partial z} & 0 & 0 & \frac{\partial N_6}{\partial z} & 0 & 0 & \frac{\partial N_7}{\partial z} & 0 & 0 & \frac{\partial N_8}{\partial z} \\
+    \frac{\partial N_1}{\partial y} & \frac{\partial N_1}{\partial x} & 0 & \frac{\partial N_2}{\partial y} & \frac{\partial N_2}{\partial x} & 0 & \frac{\partial N_3}{\partial y} & \frac{\partial N_3}{\partial x} & 0 & \frac{\partial N_4}{\partial y} & \frac{\partial N_4}{\partial x} & 0 & \frac{\partial N_5}{\partial y} & \frac{\partial N_5}{\partial x} & 0 & \frac{\partial N_6}{\partial y} & \frac{\partial N_6}{\partial x} & 0 & \frac{\partial N_7}{\partial y} & \frac{\partial N_7}{\partial x} & 0 & \frac{\partial N_8}{\partial y} & \frac{\partial N_8}{\partial x} & 0 \\
+    0 & \frac{\partial N_1}{\partial z} & \frac{\partial N_1}{\partial y} & 0 & \frac{\partial N_2}{\partial z} & \frac{\partial N_2}{\partial y} & 0 & \frac{\partial N_3}{\partial z} & \frac{\partial N_3}{\partial y} & 0 & \frac{\partial N_4}{\partial z} & \frac{\partial N_4}{\partial y} & 0 & \frac{\partial N_5}{\partial z} & \frac{\partial N_5}{\partial y} & 0 & \frac{\partial N_6}{\partial z} & \frac{\partial N_6}{\partial y} & 0 & \frac{\partial N_7}{\partial z} & \frac{\partial N_7}{\partial y} & 0 & \frac{\partial N_8}{\partial z} & \frac{\partial N_8}{\partial y} \\
+    \frac{\partial N_1}{\partial z} & 0 & \frac{\partial N_1}{\partial x} & \frac{\partial N_2}{\partial z} & 0 & \frac{\partial N_2}{\partial x} & \frac{\partial N_3}{\partial z} & 0 & \frac{\partial N_3}{\partial x} & \frac{\partial N_4}{\partial z} & 0 & \frac{\partial N_4}{\partial x} & \frac{\partial N_5}{\partial z} & 0 & \frac{\partial N_5}{\partial x} & \frac{\partial N_6}{\partial z} & 0 & \frac{\partial N_6}{\partial x} & \frac{\partial N_7}{\partial z} & 0 & \frac{\partial N_7}{\partial x} & \frac{\partial N_8}{\partial z} & 0 & \frac{\partial N_8}{\partial x}
+\end{bmatrix}
+\end{equation*}
+
+\end{document}

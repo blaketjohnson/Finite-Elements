@@ -1,0 +1,12 @@
+PWD /Users/blakejohnson/Documents/Fall 2024/Finite Elements/Exam_2
+INPUT /usr/local/texlive/2024/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/blakejohnson/Documents/Fall 2024/Finite Elements/Exam_2/problem_1.tex
+OUTPUT problem_1.log
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+OUTPUT problem_1.pdf
+INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map

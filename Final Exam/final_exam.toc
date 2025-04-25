@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Problem 1}{2}{}%
+\contentsline {paragraph}{Assembling the Global Stiffness Matrix}{6}{}%
+\contentsline {paragraph}{Boundary Conditions and Adjustments}{7}{}%
+\contentsline {paragraph}{Key Results}{9}{}%
+\contentsline {paragraph}{Discussion of Results}{9}{}%
+\contentsline {section}{\numberline {2}Problem 2}{10}{}%
+\contentsline {section}{\numberline {3}Problem 3}{14}{}%
+\contentsline {paragraph}{Term 1}{16}{}%
+\contentsline {paragraph}{Boundary Conditions}{17}{}%
+\contentsline {paragraph}{Term 2}{17}{}%
+\contentsline {paragraph}{Term 3}{17}{}%
+\contentsline {paragraph}{Key Results}{19}{}%
+\contentsline {paragraph}{Discussion of Results}{20}{}%
+\contentsline {section}{\numberline {4}Problem 4}{21}{}%
+\contentsline {paragraph}{Reduced Displacement and Force Vectors:}{39}{}%
